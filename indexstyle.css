@@ -1,0 +1,68 @@
+body{
+    background-color:black;
+    color:white;
+    margin:0;
+    font-family:Cursive;
+}
+
+h1{
+    color:white;
+    text-align:center;
+    font-family:Cursive;
+    
+}
+.head-content{
+    width:1365px;
+    height:auto;
+    margin:0 auto;
+    background:black;
+}
+.head{
+    width:659px;
+    height:auto;
+    padding-top:24px;
+}
+
+.head-border{
+    width:207.1%;
+    height:0;
+    border-bottom:2px solid white;
+
+}
+
+
+.nav{
+    height:40px;
+    background:blue;
+    text-align:center;
+}
+
+.nav ul{
+    margin:0;
+    padding:0;
+    text-align:center;
+}
+
+.nav ul li{
+    list-style:none;
+}
+
+.nav ul li{
+    text-decoration:none;
+    display:inline-block;
+    padding:10px 20px;
+    color:black;
+    width:100px;
+}
+
+.nav ul li :hover{
+    color:white;
+    background-color:grey;
+}
+
+#info{
+    color:green;
+    width:70%;
+    border:5px ridge white;
+    text-align:center;
+}
