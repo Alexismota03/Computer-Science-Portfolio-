@@ -155,15 +155,20 @@ h1{
 }
 
 .heading-CSS{
+    width:48.1%;
     color:green;
     font-family:sans-serif;
     border-bottom: solid yellow ;
 }
 .HTML{
-    width:145%;
-    border:2px solid red;
-    background-color:blue;
+  width:68.5%;
+  border:2px solid red;
+  background-color:blue;
 }
 #mexico-eagle{background-image:url(https://s-media-cache-ak0.pinimg.com/736x/60/5b/fc/605bfc5f9d2f4c70062ba970374bdcb0.jpg);
     background-size:100%;
+}
+
+#coding{
+    background-image:url(https://media.licdn.com/mpr/mpr/p/7/005/071/353/052ac3e.jpg);
 }
