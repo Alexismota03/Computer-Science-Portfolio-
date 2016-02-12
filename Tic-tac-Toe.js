@@ -77,7 +77,7 @@ function checkWin() {
         (a2.innerHTML == b2.innerHTML && a2.innerHTML == c2.innerHTML && (a2.innerHTML == "O")) ||
         (a3.innerHTML == b3.innerHTML && a3.innerHTML == c3.innerHTML && (a3.innerHTML == "O")) ||
         (a1.innerHTML == b2.innerHTML && a1.innerHTML == c3.innerHTML && (a1.innerHTML == "O")) ||
-        (a3.innerHTML == b2.innerHTML && a3.innerHTML == c1.innerHTML && (a3.innerHTML == "O"))
+        (a3.innerHTML == b2.innerHTML && a3.innerHTML == c1.innerHTML && (a3.innerHTML == ""))
     ) {
         oWin = true;
         winAlert();
