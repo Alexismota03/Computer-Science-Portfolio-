@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        	<link rel="stylesheet" type="text/css" href="Vindinium.css">
+        <title> </title>
+    </head>
+    <body>
+        <h1>Vindinium</h1>
+     <div class="head-content">
+            <a href="#"></a>
+            <div class="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="AboutME-page.html">About Me</a></li>
+                    <li><a href="CSS.html">HTML/CSS</a></li>
+                    <li><a href="Hardware.html">Hardware</a></li>
+                    <li><a href="calc.html">Calculator</a></li>
+                    <li><a href="info.html">Info</a></li> 
+                    <li><a href="todolist.html">To-do List</a></li>
+                    <li><a href="Tic-Tac-Toe.html">Tic-Tac-Toe</a></li>
+                    <li><a href="Vindinium.html">Vindinium</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+        <h2 class="heading-vindinium">What is Vindinium?</h2>
+        <p class="game-info">Well to fill you in with a brief explanation of what vindinium is,  it is a pretty simple game 
+        that has an objective of having the most amount of gold than the other 3 players that will playing as well. Now to 
+        get gold our bots need to claim goldmines around the map, but they need to make sure they don't die in the process.
+        Someone could die if they don't visit the tavern which gives them health, and they could lose health by attacking 
+        others  and by getting too many mines since you lose heatlh when you gain a mine. Everyone gets one turn at a time 
+        and in total there are a number of 1200 turns and at the end, the bot with the most amount of gold wins the match, 
+        and a key importance is that when you kill a person you take all of their mines.</p>
+        
+        <h3 class="heading-vindinium">Explaining my code</h3>
+        <div class="game-info">The very fisrt part of my code was <code><pre>
+        var enemyBots = [];
+        if(bot.yourBot.id != 1) enemyBots.push(bot.bot1);
+        if(bot.yourBot.id != 2) enemyBots.push(bot.bot2);
+        if(bot.yourBot.id != 3) enemyBots.push(bot.bot3);
+        if(bot.yourBot.id != 4) enemyBots.push(bot.bot4);
+        </pre></code>
+        which shows the variable for bots and then the if statements run a code that will determine which of the players, 1-4
+        is my bot, so later it will target the variable "enemyBots".
+        
+        The next part of my code is "<code><pre> var mostMines = enemyBots[0];
+       for(i = 0; i < enemyBots.length; i++){
+            if(mostMines.mineCount < enemyBots[i].mineCount){
+              mostMines = enemyBots[i]  
+            }
+        }</pre></code>, and this code will decide which of the other bots has the most amount of mines, which I will discuss 
+        why I  did this later on.The next part of my code does a lot of things and I will explain what those things are.The 
+        code is <code><pre> var task;
+        task = "freemines";
+        if(bot.yourBot.life < 50){
+            task = "bot.taverns";
+        }else if(mostMines.mineCount > 5){
+            task = "mostMines";
+        }
+        else if(bot.yourBot.mineCount > enemyBots[0].mineCount && bot.yourBot.mineCount > enemyBots[1].mineCount 
+        && bot.yourBot.mineCount > enemyBots[2].mineCount){
+            task = "bot.taverns";
+        }else{
+            task = "freemines";
+        }</pre></code>and the task means that what will the task will be. The first part tells the bot if his health is less
+        than 50 than he should go get health, but if his health his higher than 50 he will target the person with the most 
+        amount of mines. Then if he has the most amount of mines he will go to a tavern and stay there for the rest of the 
+        game. Then the last part is to just target the remaining of the freemines. The next part of the code will explain 
+        what the bots will do according to their tasks. <code><pre>if(task === "freemines") {
+            var closestMine = bot.freeMines[0];
+            for(i = 0; i < bot.freeMines.length; i++) {
+                if(bot.findDistance(myPos, closestMine) > bot.findDistance(myPos, bot.freeMines[i])) {
+                    closestMine = bot.freeMines[i];
+                }
+            }
+            console.log("Claiming a Free Mine!");
+            myDir = bot.findPath(myPos, closestMine);
+        }</pre></code>If the task is the freemine then it will locate the closest mine and claim it and it will say "claiming
+        a Free Mine!" when it does. The next part is <code><pre></pre>if(task === "bot.taverns"){
+            var closestTavern = bot.taverns[0];
+            for(i = 0; i < bot.taverns.length; i++){
+                if(bot.findDistance(myPos, closestTavern)> bot.findDistance(myPos, bot.taverns[i])){
+                    closestTavern = bot.taverns[i];
+                }       
+            }
+            console.log("Got health");
+            myDir = bot.findPath(myPos, closestTavern);
+            
+        }
+        </pre></code> 
+        
+        <p>And this means that when the task is to go to the taverns, it will again locate the closest tavern and go 
+        to it to gain health(which is the first of three things that I was suppose to make it do) and it will then say 
+        "Got health".</p>
+        <code><pre>if(task === "mostMines"){
+            console.log("I'm gonna win");
+            myDir = bot.findPath(myPos, mostMines.posArray)
+        }</pre></code>
+        
+        Now this final code is when my bot either has the most amount of mines which means it will stay at a tavern(which 
+        was the second of three things that I made it do), but if it does not hav the most amount of mines it will attack 
+        whoever does have the most amount of mines to take their mines(which was the 3rd of three things that I made it do).
+        
+        <code><pre>if(myDir === "none") {
+            console.log("Going Random!");
+            var rand = Math.floor(Math.random() * 4);
+            var dirs = ["north", "south", "east", "west"];
+            bot.goDir = dirs[rand];
+        } else {
+            bot.goDir = myDir;
+        }</pre></code>
+        
+        So this final code in my code sets my bots direction based on (direction). If  my bot is trying to go to a place 
+        that he can't reach, he will move randomly. Otherwise he'll move in the direction set by my code. 
+        </div>
+        
+        <h3 class="heading-vindinium">What I learned about AI?</h3>
+        <p class="game-info">One question that people asked a lot if it was really difficult, and how long did it take me to 
+        make the bot do specific things, and the main answer was yes and no. The reason for yes was because I mean we had to 
+        program it andsomethings were a lot more difficult than other things.For example making it stay at a tavern when it 
+        had all of the mines took me around 2 days, by just figuring it out, while making it go to a tavern when he had low 
+        health took not even half a day. So it mainly just depends on what code you're programing, because I already had some
+        experience with some parts. Now another reason was that sometimes the bot would crash a .ot or even worse it wouldn't 
+        do what I wantedit to do. Now the reason was because I would lose a game and it get very competitive. Although this 
+        project was difficult, my thoughts on an AI did change a lot. At the begging I though that discover AI's or would
+        (rarely) sometimes invent AI's which I thought you had to be extremely smart, but now I know that all of the AI's
+        are made and that they aren't perfect either, and they sometimes may have bugs in them as do we.</p>
+    </body>
+</html>

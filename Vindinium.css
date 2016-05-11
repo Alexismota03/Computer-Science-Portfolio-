@@ -1,0 +1,54 @@
+body{
+    background-color:black;
+}
+
+h1{
+    color:white;
+    text-align:center;
+    font-family:Cursive;
+    
+}
+.head-content{
+    width:1365px;
+    height:auto;
+    margin:0 auto;
+    background:black;
+}
+
+
+.nav{
+    height:40px;
+    background:blue;
+    text-align:center;
+}
+
+.nav ul{
+    margin:0;
+    padding:0;
+    text-align:center;
+}
+
+.nav a{
+    color:black;
+}
+
+.nav ul li{
+    text-decoration:none;
+    display:inline-block;
+    padding:10px 20px;
+    color:red;
+    width:100px;
+}
+
+.heading-vindinium{
+    width:48.1%;
+    color:blue;
+    font-family:sans-serif;
+    border-bottom: solid white ;
+}
+.game-info{
+  width:68.5%;
+  border:2.5px solid white;
+  background-color:grey;
+  color:black;
+}

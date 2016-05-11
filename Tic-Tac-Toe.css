@@ -71,3 +71,38 @@ td {
     color:white
 
 }
+.head-content{
+    width:1365px;
+    height:auto;
+    margin:0 auto;
+    background:black;
+}
+
+.nav{
+    height:40px;
+    background:blue;
+    text-align:center;
+}
+
+.nav ul{
+    margin:0;
+    padding:0;
+    text-align:center;
+}
+
+.nav a{
+    color:black;
+}
+
+
+.nav ul li{
+    text-decoration:none;
+    display:inline-block;
+    padding:10px 20px;
+    color:red;
+    width:100px;
+}
+.nav ul li :hover{
+    color:white;
+    background-color:grey;
+}
